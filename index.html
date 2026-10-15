@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Leen Summaqa</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Leen Summaqa: sculptural triangular handbags. Founded by Leen Abu Summaqa in 2019.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,500..800&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: Jacquemus-style maison. White page, condensed black logotype, full-bleed campaigns
+   with a small white caption, products on flat grey plates in a tight 2-up grid, no ornament. */
+:root{
+  --paper:#ffffff;
+  --ink:#111111;
+  --mute:#8a8790;
+  --plate:#f2f2f2;
+  --line:#d9d7dc;
+  --lilac:#d4c2e2;
+  --plum:#6b2c91;
+  --logo:"Archivo", "Arial Narrow", "Helvetica Neue", sans-serif;
+  --body:"Jost", "Futura", "Century Gothic", "Helvetica Neue", sans-serif;
+  --gl:max(16px, env(safe-area-inset-left, 0px));
+  --gr:max(16px, env(safe-area-inset-right, 0px));
+  --gap:8px;
+  --hh:64px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--body); font-weight:400; font-size:15px; line-height:1.5; letter-spacing:.02em; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+img{max-width:100%; display:block}
+a{color:inherit; text-decoration:none}
+button{font:inherit; letter-spacing:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer}
+:focus-visible{outline:1.5px solid var(--ink); outline-offset:3px}
+[hidden]{display:none!important}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.link{text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px}
+.link:hover{text-decoration-color:transparent}
+.muted{color:var(--mute)}
+
+/* ---------- announcement ---------- */
+.ann{background:var(--lilac); display:grid; grid-template-columns:32px 1fr 32px; align-items:center; padding-block:9px; padding-left:var(--gl); padding-right:var(--gr); text-align:center}
+.ann p{margin:0; font-size:12px; letter-spacing:.08em; text-transform:uppercase; line-height:1.35; transition:opacity .35s}
+.ann button{height:28px; display:grid; place-items:center}
+
+/* ---------- header ---------- */
+.hdr{position:sticky; top:env(safe-area-inset-top,0px); z-index:40; background:var(--paper); border-bottom:1px solid transparent; transition:border-color .3s}
+.hdr.scrolled{border-color:var(--line)}
+.hdr-in{height:var(--hh); display:flex; align-items:center; justify-content:space-between; gap:16px; padding-left:var(--gl); padding-right:var(--gr)}
+.logo{font-family:var(--logo); font-weight:760; font-variation-settings:"wdth" 64; font-size:clamp(25px, 7.2vw, 44px); line-height:1; letter-spacing:-.005em; display:flex; align-items:center; gap:.2em; white-space:nowrap}
+.logo .dots{display:grid; gap:.08em; transform:translateY(-.04em)}
+.logo .dots i{width:.17em; height:.17em; border-radius:50%; background:var(--plum)}
+.logo .dots i+i{background:#a27dc4}
+.icons{display:flex; align-items:center; gap:clamp(8px,3vw,24px); flex:none}
+.icons button{width:28px; height:28px; display:grid; place-items:center; position:relative}
+.icons svg{width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.3}
+.bagdot{width:9px; height:9px; border-radius:50%; background:var(--ink); transition:transform .3s}
+.bagdot.has{background:var(--plum); transform:scale(1.25)}
+.bagn{position:absolute; top:-2px; right:-4px; font-size:10px; font-variant-numeric:tabular-nums; line-height:1}
+
+/* ---------- campaign ---------- */
+.camp{position:relative; display:block; overflow:hidden; background:var(--plate)}
+.camp img{width:100%; height:100%; object-fit:cover; transition:transform 2.4s cubic-bezier(.2,.7,.1,1)}
+.camp:hover img{transform:scale(1.025)}
+.camp .cap{position:absolute; left:var(--gl); right:var(--gr); bottom:clamp(22px,4vw,44px); color:#fff; font-size:clamp(16px,2vw,20px); font-weight:400; text-shadow:0 1px 18px rgba(0,0,0,.25); display:flex; justify-content:space-between; align-items:end; gap:16px}
+.camp .cap small{font-size:13px; letter-spacing:.06em}
+.camp.dark .cap{color:var(--ink); text-shadow:none}
+.hero{aspect-ratio:4/5; max-height:calc(100svh - var(--hh) - 40px); width:100%}
+.hero img{object-position:30% 40%}
+@media (min-width:900px){
+  .hero-wrap{display:grid; grid-template-columns:1fr 1fr; gap:var(--gap)}
+  .hero{max-height:none}
+}
+.r-queen{aspect-ratio:1/1}
+.r-wide{aspect-ratio:2/1}
+.r-sq{aspect-ratio:1/1}
+@media (min-width:900px){.r-queen{aspect-ratio:16/9}.r-queen img{object-position:50% 22%}.r-wide{aspect-ratio:3/1}}
+.spacer{height:var(--gap)}
+
+/* ---------- product grid ---------- */
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); padding-block:var(--gap); padding-left:var(--gap); padding-right:var(--gap)}
+@media (min-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
+.tile{position:relative; display:block; background:var(--plate); aspect-ratio:4/5; max-width:100%; overflow:hidden; text-align:left; width:100%}
+.tile img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; mix-blend-mode:multiply; transition:transform .9s cubic-bezier(.2,.7,.1,1), opacity .5s}
+.tile img.alt{opacity:0}
+@media (hover:hover){.tile:hover img.main{transform:scale(1.04)}.tile:hover img.alt{opacity:1}.tile:hover img.alt+img.main,.tile.has-alt:hover img.main{opacity:0}}
+.tile .info{position:absolute; left:12px; right:12px; bottom:10px; display:flex; justify-content:space-between; gap:8px; font-size:12.5px; line-height:1.3; opacity:0; transform:translateY(6px); transition:.35s}
+.tile:hover .info,.tile:focus-visible .info{opacity:1; transform:none}
+@media (hover:none){.tile .info{opacity:1; transform:none}}
+.tile .info span:last-child{white-space:nowrap; font-variant-numeric:tabular-nums}
+.tile .tag{position:absolute; top:10px; left:12px; font-size:11px; letter-spacing:.08em; text-transform:uppercase}
+.heart{position:absolute; top:6px; right:6px; width:36px; height:36px; display:grid; place-items:center; z-index:2}
+.heart svg{width:18px; height:18px; fill:none; stroke:var(--ink); stroke-width:1.3; transition:fill .2s, transform .25s}
+.heart[aria-pressed="true"] svg{fill:var(--ink)}
+.heart:active svg{transform:scale(.85)}
+
+.shop-h{display:grid; gap:14px; padding-left:var(--gl); padding-right:var(--gr); margin-bottom:6px}
+.shop-h h2{margin:0; font-weight:400; font-size:24px; letter-spacing:.02em}
+.chips{display:flex; gap:20px; overflow-x:auto; scrollbar-width:none; font-size:14px; white-space:nowrap; margin-inline:calc(-1 * var(--gr)) 0; padding-right:var(--gr)}
+.chips::-webkit-scrollbar{display:none}
+.chips button{color:var(--mute); padding-bottom:4px; border-bottom:1px solid transparent}
+.chips button[aria-pressed="true"]{color:var(--ink); border-color:var(--ink)}
+.chips small{font-size:11px; vertical-align:super; margin-left:2px}
+
+/* ---------- editorial text ---------- */
+.words{padding-block:clamp(56px,10vw,120px); padding-left:var(--gl); padding-right:var(--gr); display:grid; justify-items:center; text-align:center; gap:22px}
+.words h2{margin:0; font-weight:400; font-size:clamp(24px,3.6vw,38px); line-height:1.2; letter-spacing:.01em; max-width:26ch; text-wrap:balance}
+.words p{margin:0; max-width:52ch; color:#57545c; font-weight:300; font-size:16px}
+.eyebrow{font-size:12px; letter-spacing:.12em; text-transform:uppercase}
+.press{display:block; width:min(560px, 100%); mix-blend-mode:multiply; opacity:.92}
+
+/* ---------- services carousel ---------- */
+.svc{border-top:1px solid var(--line); padding-block:56px 34px; padding-left:var(--gl); padding-right:var(--gr); text-align:center}
+.svc-row{display:grid; grid-template-columns:36px 1fr 36px; align-items:center; max-width:640px; margin-inline:auto}
+.svc-row button{height:44px; display:grid; place-items:center}
+.svc-row svg{width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.3}
+.svc h3{margin:0 0 10px; font-weight:400; font-size:22px; letter-spacing:.04em}
+.svc p{margin:0; color:var(--mute); font-weight:300; font-size:16px; min-height:3em}
+.svc-slide{transition:opacity .35s}
+.pips{display:flex; justify-content:center; gap:26px; margin-top:28px}
+.pips button{width:5px; height:5px; border-radius:50%; background:var(--line)}
+.pips button[aria-current="true"]{background:var(--ink)}
+
+/* ---------- help + newsletter ---------- */
+.help{border-top:1px solid var(--line); padding-block:48px; padding-left:var(--gl); padding-right:var(--gr); display:grid; gap:44px}
+@media (min-width:900px){.help{grid-template-columns:1fr 1fr}}
+.help h3{margin:0 0 22px; font-weight:400; font-size:24px; letter-spacing:.03em}
+.help .lines{display:grid; gap:18px; justify-items:start; font-size:16px}
+.news form{display:flex; border-bottom:1px solid var(--ink); margin-top:20px}
+.news input{flex:1; min-width:0; border:0; background:transparent; padding:12px 0; font:inherit; font-size:16px; color:var(--ink); outline:none}
+.news input::placeholder{color:var(--mute)}
+.news .msg{display:block; margin-top:12px; font-size:13px; color:var(--mute); min-height:1.4em}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line); padding-block:36px 26px; padding-left:var(--gl); padding-right:var(--gr); display:grid; gap:34px}
+.fcols{display:grid; grid-template-columns:repeat(2,1fr); gap:28px 16px; font-size:14px}
+@media (min-width:900px){.fcols{grid-template-columns:repeat(4,1fr)}}
+.fcols h4{margin:0 0 12px; font-weight:500; font-size:12px; letter-spacing:.1em; text-transform:uppercase}
+.fcols ul{list-style:none; margin:0; padding:0; display:grid; gap:8px; color:#57545c}
+.bigmark{font-family:var(--logo); font-weight:780; font-variation-settings:"wdth" 62; font-size:clamp(64px, 23.5vw, 340px); line-height:.78; letter-spacing:-.01em; white-space:nowrap; overflow:hidden; margin-inline:-.03em}
+.fbase{display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 20px; font-size:12px; color:var(--mute); letter-spacing:.06em}
+
+/* ---------- overlays ---------- */
+.scrim{position:fixed; inset:0; background:rgba(17,17,17,.28); z-index:60; opacity:0; pointer-events:none; transition:opacity .35s}
+.scrim.on{opacity:1; pointer-events:auto}
+.panel{position:fixed; z-index:70; background:var(--paper); color:var(--ink); display:flex; flex-direction:column; visibility:hidden; transition:transform .55s cubic-bezier(.2,.7,.1,1), visibility 0s linear .55s; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px)}
+.panel.panel.on{visibility:visible; transform:none; transition:transform .55s cubic-bezier(.2,.7,.1,1)}
+.panel.full{inset:0; transform:translateY(-100%)}
+.panel.side{top:0; bottom:0; right:0; width:min(460px,100%); transform:translateX(101%); padding-right:env(safe-area-inset-right,0px)}
+.panel.sheet{left:0; right:0; bottom:0; max-height:94%; transform:translateY(101%); overflow-y:auto}
+@media (min-width:900px){.panel.sheet{left:auto; top:0; max-height:none; width:min(980px,100%); transform:translateX(101%)}}
+.ph{height:var(--hh); display:flex; justify-content:space-between; align-items:center; gap:16px; padding-left:var(--gl); padding-right:var(--gr); flex:none}
+.ph .x{width:28px; height:28px; display:grid; place-items:center}
+.ph .x svg{width:22px; height:22px; stroke:currentColor; stroke-width:1.3}
+.pb{flex:1; overflow-y:auto; padding-block:8px 24px; padding-left:var(--gl); padding-right:var(--gr)}
+
+.menu-list{list-style:none; margin:12px 0 0; padding:0; display:grid; gap:2px}
+.menu-list a,.menu-list button{display:flex; justify-content:space-between; align-items:baseline; width:100%; font-size:clamp(26px,7vw,40px); font-weight:400; letter-spacing:.01em; line-height:1.35; text-align:left}
+.menu-list small{font-size:13px; color:var(--mute); font-variant-numeric:tabular-nums}
+.menu-list a:hover,.menu-list button:hover{color:var(--plum)}
+.menu-foot{display:grid; gap:12px; margin-top:44px; font-size:15px}
+.menu-cards{display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); margin-top:36px}
+.menu-cards a{display:grid; gap:8px; font-size:13px}
+.menu-cards img{aspect-ratio:1/1; object-fit:cover; width:100%}
+
+.search{display:flex; align-items:center; gap:12px; border-bottom:1px solid var(--ink); flex:1}
+.search input{flex:1; min-width:0; border:0; background:transparent; font:inherit; font-size:20px; padding:10px 0; color:var(--ink); outline:none}
+.sres{display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); margin-top:16px}
+@media (min-width:900px){.sres{grid-template-columns:repeat(4,1fr)}}
+.sres .tile .info{opacity:1; transform:none}
+.sugg{display:flex; flex-wrap:wrap; gap:10px 18px; margin-top:16px; font-size:15px}
+
+.line{display:grid; grid-template-columns:92px 1fr auto; gap:14px; padding-block:16px; border-bottom:1px solid var(--line); align-items:start; font-size:14px}
+.line .tile{aspect-ratio:4/5}
+.qty{display:inline-flex; align-items:center; gap:14px; margin-top:10px; border:1px solid var(--line); padding:2px 10px}
+.qty button{width:22px; height:26px}
+.pf{padding-block:18px; padding-left:var(--gl); padding-right:var(--gr); border-top:1px solid var(--line); display:grid; gap:12px; flex:none}
+.row{display:flex; justify-content:space-between; gap:12px}
+.btn{display:block; width:100%; background:var(--ink); color:var(--paper); padding:17px; text-align:center; font-size:13px; letter-spacing:.12em; text-transform:uppercase; transition:opacity .2s}
+.btn:hover{opacity:.86}
+.btn.ghost{background:transparent; color:var(--ink); border:1px solid var(--ink)}
+
+.pdp{display:grid; grid-template-columns:1fr}
+@media (min-width:900px){.pdp{grid-template-columns:1.15fr 1fr}}
+.gal{display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; background:var(--plate)}
+.gal::-webkit-scrollbar{display:none}
+.gal .tile{flex:0 0 100%; scroll-snap-align:start}
+.galpips{display:flex; justify-content:center; gap:8px; padding-top:12px}
+.galpips i{width:5px; height:5px; border-radius:50%; background:var(--line)}
+.galpips i.on{background:var(--ink)}
+.pd{padding-block:22px 30px; padding-left:var(--gl); padding-right:var(--gr); display:grid; gap:18px; align-content:start}
+.pd h2{margin:0; font-weight:400; font-size:24px; letter-spacing:.01em; line-height:1.2}
+.pd .price{font-size:17px; font-variant-numeric:tabular-nums}
+.pd .desc{margin:0; color:#57545c; font-weight:300; font-size:16px; max-width:46ch}
+.sw{display:flex; gap:12px; flex-wrap:wrap}
+.sw button{width:30px; height:30px; border-radius:50%; border:1px solid rgba(0,0,0,.15); position:relative}
+.sw button[aria-pressed="true"]::after{content:""; position:absolute; inset:-5px; border-radius:50%; border:1px solid var(--ink)}
+.acc{border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none; cursor:pointer; padding-block:14px; display:flex; justify-content:space-between; font-size:14px; letter-spacing:.04em}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+"}
+.acc details[open] summary::after{content:"–"}
+.acc p{margin:0 0 16px; color:#57545c; font-weight:300; font-size:15px}
+.badge{display:inline-block; background:var(--lilac); padding:4px 10px; font-size:11px; letter-spacing:.1em; text-transform:uppercase; justify-self:start}
+
+.toast{position:fixed; left:50%; bottom:calc(18px + env(safe-area-inset-bottom,0px)); transform:translate(-50%,160%); background:var(--ink); color:var(--paper); padding:13px 18px; z-index:90; font-size:13px; letter-spacing:.04em; transition:transform .45s cubic-bezier(.2,.7,.1,1); max-width:calc(100% - 32px); text-align:center}
+.toast.on{transform:translate(-50%,0)}
+
+.fade{animation:fade 1s ease both}
+@keyframes fade{from{opacity:.0001; transform:translateY(10px)}to{opacity:1; transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="ann" role="region" aria-label="Announcements">
+  <button id="annPrev" aria-label="Previous announcement"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <p id="annText" aria-live="polite">Pre-order: 2 weeks production + shipping time applies</p>
+  <button id="annNext" aria-label="Next announcement"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a class="logo" href="#top" aria-label="Leen Summaqa, home">LEEN<span class="dots" aria-hidden="true"><i></i><i></i></span>SUMMAQA</a>
+    <div class="icons">
+      <button id="openSearch" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg></button>
+      <button id="openWish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></svg></button>
+      <button id="openBag" aria-label="Shopping bag, 0 items"><span class="bagdot" id="bagDot"></span><span class="bagn" id="bagN"></span></button>
+      <button id="openMenu" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero-wrap">
+    <a class="camp hero" href="#shop" data-filter="all">
+      <img src="img/campaign-desert.jpg" alt="Model stretching across desert sand, holding a black Leen Summaqa bag at arm’s length" fetchpriority="high">
+      <div class="cap fade"><span>The Summer Edit</span><small class="link">Discover</small></div>
+    </a>
+    <a class="camp hero" href="#shop" data-filter="Tri-Amore" id="heroB">
+      <img src="img/campaign-tri-amore.jpg" alt="Leen Abu Summaqa in a white fur jacket surrounded by floating lilac Tri-Amore bags">
+      <div class="cap fade"><span>The Tri-Amore</span><small class="link">Discover</small></div>
+    </a>
+  </div>
+
+  <section class="grid" aria-label="The Mini Triangular" id="g1"></section>
+
+  <a class="camp dark r-sq" href="#shop" data-filter="Mini Triangular" style="background:#fff">
+    <img src="img/five-triangles.jpg" alt="Five Mini Triangular bags in brown, burgundy, navy, sky blue and lilac arranged as a pentagon" style="object-fit:contain">
+    <div class="cap"><span>The Mini Triangular, in every colour</span><small class="link">Shop</small></div>
+  </a>
+
+  <section class="grid" aria-label="Signature bags" id="g2"></section>
+
+  <a class="camp r-queen" href="#story">
+    <img src="img/queen-rania.jpg" alt="Her Majesty Queen Rania Al Abdullah and His Majesty King Abdullah II; the Queen carries a lilac Mini Triangular bag">
+    <div class="cap"><span>Independence Day, Amman</span><small class="link">The story</small></div>
+  </a>
+
+  <section class="words" id="story">
+    <span class="eyebrow muted">Top-tier endorsements</span>
+    <h2>Her Majesty Queen Rania Al Abdullah chose to celebrate Independence Day with our Mini Triangular bag.</h2>
+    <p>We are honoured. A label born from one shape, the triangle, became known across the region overnight.</p>
+    <button class="link" data-open="mini-lilac">Shop the Mini Triangular in Lilac</button>
+  </section>
+
+  <a class="camp r-wide" href="#shop" data-open="leila">
+    <img src="img/leila-raffia.jpg" alt="Close-up of the Leila Raffia bag: natural woven raffia with red braided handles and a gold Leen Summaqa plaque">
+    <div class="cap"><span>The Leila Raffia Bag</span><small class="link">Discover</small></div>
+  </a>
+
+  <section id="shop" aria-labelledby="shopH" style="padding-top:clamp(40px,7vw,80px)">
+    <div class="shop-h"><h2 id="shopH">All bags</h2><div class="chips" id="chips" role="toolbar" aria-label="Filter by model"></div></div>
+    <div class="grid" id="bags"></div>
+  </section>
+
+  <section class="words" id="maison">
+    <span class="eyebrow muted">The maison</span>
+    <h2>Founded by Leen Abu Summaqa in 2019.</h2>
+    <p>The brand turns bold geometric design, above all the triangle, into standout handbags that blend art with everyday function. Each piece is made for women who want to stand out with confidence.</p>
+    <span class="eyebrow" style="margin-top:28px">As featured in</span>
+    <img class="press" src="img/press.jpg" alt="Soigné Middle East and Harper’s Bazaar Arabia">
+  </section>
+
+  <section class="svc" aria-label="Client services">
+    <div class="svc-row">
+      <button id="svcPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <div class="svc-slide" id="svcSlide" aria-live="polite"></div>
+      <button id="svcNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+    <div class="pips" id="svcPips"></div>
+  </section>
+
+  <section class="help">
+    <div>
+      <h3>Need help? Contact us</h3>
+      <div class="lines">
+        <span class="muted">Message us on Instagram, we answer every day.</span>
+        <a class="link" href="https://www.instagram.com/leenabusummaqa/" target="_blank" rel="noopener">@leenabusummaqa</a>
+        <button class="link" data-toast="Order tracking opens when the store goes live">Track an order</button>
+        <button class="link" data-toast="Returns open when the store goes live">Register a return</button>
+      </div>
+    </div>
+    <div class="news">
+      <h3>Join our email list</h3>
+      <span class="muted">Get exclusive deals and early access to new products. Share your Leen bag on Instagram and join the #Leenclique.</span>
+      <form id="newsForm" novalidate>
+        <label class="sr" for="email">Email address</label>
+        <input id="email" type="email" placeholder="Email address" autocomplete="email">
+        <button type="submit" class="eyebrow">Sign up</button>
+      </form>
+      <span class="msg" id="newsMsg" aria-live="polite"></span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="fcols">
+    <div><h4>Shop</h4><ul><li><a href="#shop" data-filter="Mini Triangular">Mini Triangular</a></li><li><a href="#shop" data-filter="Tri-Amore">Tri-Amore</a></li><li><a href="#shop" data-filter="Tri-Istanbul">Tri-Istanbul</a></li><li><a href="#shop" data-filter="Diana II">Diana II</a></li><li><a href="#shop" data-filter="Leila Raffia">Leila Raffia</a></li></ul></div>
+    <div><h4>Client service</h4><ul><li>Pre-order and production</li><li>Shipping</li><li>Returns</li><li>Care guide</li></ul></div>
+    <div><h4>Maison</h4><ul><li><a href="#maison">About Leen</a></li><li><a href="#story">Queen Rania</a></li><li>Press</li></ul></div>
+    <div><h4>Follow</h4><ul><li><a href="https://www.instagram.com/leenabusummaqa/" target="_blank" rel="noopener">Instagram</a></li><li>#Leenclique</li></ul></div>
+  </div>
+  <div class="bigmark" aria-hidden="true">LEEN SUMMAQA</div>
+  <div class="fbase"><span>© 2026 Leen Summaqa</span><span>Jordan · JOD</span></div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+
+<!-- menu -->
+<aside class="panel full" id="menu" aria-label="Menu">
+  <div class="ph"><span class="logo" aria-hidden="true" style="font-size:clamp(25px,7.2vw,44px)">LEEN<span class="dots"><i></i><i></i></span>SUMMAQA</span><button class="x" data-close aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+  <div class="pb">
+    <ul class="menu-list" id="menuList"></ul>
+    <div class="menu-cards">
+      <a href="#story" data-close><img src="img/queen-rania.jpg" alt="" loading="lazy" style="object-position:30% 20%"><span>The Queen Rania moment</span></a>
+      <a href="#maison" data-close><img src="img/campaign-tri-amore.jpg" alt="" loading="lazy"><span>About Leen</span></a>
+    </div>
+    <div class="menu-foot"><a class="link" href="https://www.instagram.com/leenabusummaqa/" target="_blank" rel="noopener">Instagram</a><span class="muted">Jordan · JOD</span></div>
+  </div>
+</aside>
+
+<!-- search -->
+<aside class="panel full" id="searchP" aria-label="Search">
+  <div class="ph">
+    <label class="search"><span class="sr">Search bags</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg><input id="q" type="search" placeholder="Search" autocomplete="off"></label>
+    <button class="x" data-close aria-label="Close search"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  </div>
+  <div class="pb">
+    <div class="sugg" id="sugg"></div>
+    <div class="sres" id="sres"></div>
+  </div>
+</aside>
+
+<!-- bag / wishlist -->
+<aside class="panel side" id="bagP" aria-label="Shopping bag">
+  <div class="ph"><span class="eyebrow" id="bagTitle">Shopping bag</span><button class="x" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+  <div class="pb" id="bagBody"></div>
+  <div class="pf" id="bagFoot">
+    <div class="row"><span>Subtotal</span><span id="subtotal" style="font-variant-numeric:tabular-nums"></span></div>
+    <span class="muted" style="font-size:13px">Taxes included. Made to order: allow 2 weeks of production plus shipping.</span>
+    <button class="btn" id="checkout">Checkout</button>
+  </div>
+</aside>
+
+<!-- product -->
+<aside class="panel sheet" id="pdp" aria-label="Product details">
+  <div class="ph" style="position:sticky; top:0; background:var(--paper); z-index:3"><span class="eyebrow muted" id="pdLine"></span><button class="x" data-close aria-label="Close product"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+  <div class="pdp">
+    <div><div class="gal" id="gal"></div><div class="galpips" id="galPips"></div></div>
+    <div class="pd">
+      <h2 id="pdName"></h2>
+      <span class="price" id="pdPrice"></span>
+      <span class="badge" id="pdBadge" hidden></span>
+      <div style="display:grid; gap:12px" id="pdSwWrap"><span style="font-size:14px">Colour: <span id="pdColour"></span></span><div class="sw" id="pdSw"></div></div>
+      <div style="display:grid; grid-template-columns:1fr auto; gap:8px">
+        <button class="btn" id="pdAdd">Add to bag</button>
+        <button class="btn ghost heart-btn" id="pdWish" aria-pressed="false" aria-label="Add to wishlist" style="width:56px; padding:0; display:grid; place-items:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></svg></button>
+      </div>
+      <p class="desc" id="pdDesc"></p>
+      <div class="acc">
+        <details><summary>Details</summary><p id="pdDetails"></p></details>
+        <details><summary>Pre-order and delivery</summary><p>Every bag is made to order. Allow 2 weeks of production plus shipping time.</p></details>
+        <details><summary>Care</summary><p>Store in its dust bag, away from direct sun. Wipe leather with a soft dry cloth. Keep raffia away from water.</p></details>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  /* ---------- catalogue (prices in JOD, from leensummaqa.com) ---------- */
+  const P = [
+    {id:"mini-navy", model:"Mini Triangular", name:"Mini Triangular Bag in Navy", colour:"Navy", hex:"#22305a", price:60, imgs:["mini-navy.jpg","mini-navy-chain.jpg"], tag:"Icon",
+     desc:"Our signature triangle in deep navy leather. Wear it as a clutch, on the shoulder strap, or on a fine gold chain."},
+    {id:"mini-lilac", model:"Mini Triangular", name:"Mini Triangular Bag in Lilac", colour:"Lilac", hex:"#c9b6e4", price:60, imgs:["mini-lilac.jpg"], tag:"As worn by Queen Rania",
+     desc:"The colour Her Majesty Queen Rania carried for Independence Day. A soft lilac triangle with a detachable strap."},
+    {id:"mini-pink", model:"Mini Triangular", name:"Mini Triangular Bag in Baby Pink", colour:"Baby Pink", hex:"#f2dfe3", price:60, imgs:["mini-baby-pink.jpg"],
+     desc:"The Mini Triangular in a pale baby pink, finished with a gold-tone buckle on the strap."},
+    {id:"tri-istanbul", model:"Tri-Istanbul", name:"Tri-Istanbul in Silver", colour:"Silver", hex:"#6b6a6c", price:100, imgs:["tri-istanbul-silver.jpg"], tag:"New",
+     desc:"A folded triangle in metallic silver leather with gold studs and a detachable crossbody strap."},
+    {id:"tri-amore", model:"Tri-Amore", name:"Tri-Amore in Lilac", colour:"Lilac", hex:"#d9cbe9", price:100, imgs:["tri-amore-lilac.jpg"], tag:"Limited edition",
+     desc:"An inverted triangle closed with a quilted mustard heart, with two heart charms on a gold chain and a top handle."},
+    {id:"diana-ii", model:"Diana II", name:"Diana II Bag", colour:"Sky Blue", hex:"#4f8fc8", price:120, imgs:["diana-ii.jpg"], tag:"New",
+     desc:"An asymmetric top-handle bag in sky-blue leather. The handle sweeps from one corner into the body of the bag."},
+    {id:"leila", model:"Leila Raffia", name:"Leila Raffia Bag", colour:"Natural", hex:"#c9a98a", price:null, imgs:["leila-raffia.jpg"], tag:"The Summer Edit", cover:true,
+     desc:"Hand-woven natural raffia with braided red handles and a gold Leen Summaqa plaque. Premium quality, modern handmade design."}
+  ];
+  const by = Object.fromEntries(P.map(p => [p.id, p]));
+  const fmt = n => n == null ? "Price on request" : n + " JOD";
+  const img = f => "img/" + f;
+  const store = {
+    get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (_) { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (_) {} }
+  };
+  let bag = store.get("ls-bag", {}), wish = store.get("ls-wish", []);
+  Object.keys(bag).forEach(k => { if (!by[k]) delete bag[k]; });
+  wish = wish.filter(k => by[k]);
+
+  const heartSVG = '<svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></svg>';
+  const tile = (p, {info = true, lazy = true} = {}) => {
+    const alt = p.imgs[1] ? `<img class="alt" src="${img(p.imgs[1])}" alt="" loading="lazy">` : "";
+    return `<div class="tile${p.imgs[1] ? " has-alt" : ""}" role="button" tabindex="0" data-id="${p.id}" aria-label="${p.name}, ${fmt(p.price)}">
+      ${alt}<img class="main" src="${img(p.imgs[0])}" alt="${p.name}" ${lazy ? 'loading="lazy"' : ""} style="${p.cover ? "mix-blend-mode:normal" : ""}">
+      ${p.tag ? `<span class="tag" style="${p.cover ? "color:#fff" : ""}">${p.tag}</span>` : ""}
+      <button class="heart" data-wish="${p.id}" aria-pressed="${wish.includes(p.id)}" aria-label="Save ${p.name} to wishlist">${heartSVG}</button>
+      ${info ? `<div class="info" style="${p.cover ? "color:#fff" : ""}"><span>${p.name}</span><span>${fmt(p.price)}</span></div>` : ""}
+    </div>`;
+  };
+  const fill = (id, ids) => { document.getElementById(id).innerHTML = ids.map(i => tile(by[i])).join(""); };
+  fill("g1", ["mini-navy", "mini-lilac", "mini-pink", "tri-amore"]);
+  fill("g2", ["tri-istanbul", "diana-ii", "leila", "mini-navy"]);
+
+  // full catalogue with filter
+  let filter = "all";
+  function renderAll() {
+    const list = P.filter(p => filter === "all" || p.model === filter);
+    document.getElementById("bags").innerHTML = list.map(p => tile(p)).join("");
+  }
+  renderAll();
+  const chips = document.getElementById("chips");
+  function renderChips() {
+    const ms = ["all", ...new Set(P.map(p => p.model))];
+    chips.innerHTML = ms.map(m => `<button data-f="${m}" aria-pressed="${m === filter}">${m === "all" ? "All" : m}<small>${m === "all" ? P.length : P.filter(p => p.model === m).length}</small></button>`).join("");
+  }
+  chips.addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b) setFilter(b.dataset.f); });
+  function setFilter(f) { filter = f; renderAll(); renderChips(); }
+  renderChips();
+  document.querySelectorAll("[data-filter]").forEach(a => a.addEventListener("click", () => setFilter(a.dataset.filter)));
+
+  /* ---------- panels ---------- */
+  const scrim = document.getElementById("scrim");
+  let openP = null, lastFocus = null;
+  function show(id) {
+    hide(true); openP = document.getElementById(id); lastFocus = document.activeElement;
+    openP.classList.add("on"); scrim.classList.add("on"); document.documentElement.style.overflow = "hidden";
+    const f = openP.querySelector("input, [data-close]"); setTimeout(() => f && f.focus({preventScroll:true}), 60);
+  }
+  function hide(silent) {
+    if (!openP) return; openP.classList.remove("on"); openP = null;
+    scrim.classList.remove("on"); document.documentElement.style.overflow = "";
+    if (!silent && lastFocus) lastFocus.focus({preventScroll:true});
+  }
+  scrim.addEventListener("click", () => hide());
+  document.addEventListener("keydown", e => { if (e.key === "Escape") hide(); });
+  document.addEventListener("click", e => { if (e.target.closest("[data-close]")) hide(); });
+  document.getElementById("openMenu").onclick = () => show("menu");
+  document.getElementById("openSearch").onclick = () => { renderSearch(""); show("searchP"); };
+  document.getElementById("openBag").onclick = () => { mode = "bag"; renderBag(); show("bagP"); };
+  document.getElementById("openWish").onclick = () => { mode = "wish"; renderBag(); show("bagP"); };
+
+  // menu
+  const models = [...new Set(P.map(p => p.model))];
+  document.getElementById("menuList").innerHTML =
+    `<li><a href="#shop" data-close data-filter="all">All bags <small>${P.length}</small></a></li>` +
+    models.map(m => `<li><a href="#shop" data-close data-filter="${m}">${m} <small>${P.filter(p => p.model === m).length}</small></a></li>`).join("") +
+    `<li><a href="#story" data-close>Queen Rania</a></li><li><a href="#maison" data-close>The maison</a></li>`;
+  document.querySelectorAll("#menuList [data-filter]").forEach(a => a.addEventListener("click", () => setFilter(a.dataset.filter)));
+
+  // search
+  const q = document.getElementById("q"), sres = document.getElementById("sres");
+  document.getElementById("sugg").innerHTML = ["Triangular", "Lilac", "Navy", "Raffia", "Heart"].map(s => `<button class="link" data-s="${s}">${s}</button>`).join("");
+  document.getElementById("sugg").addEventListener("click", e => { const b = e.target.closest("[data-s]"); if (b) { q.value = b.dataset.s; renderSearch(q.value); } });
+  function renderSearch(v) {
+    const t = v.trim().toLowerCase();
+    const list = t ? P.filter(p => (p.name + " " + p.model + " " + p.colour + " " + p.desc).toLowerCase().includes(t)) : P;
+    sres.innerHTML = list.length ? list.map(p => tile(p)).join("") : `<p class="muted" style="grid-column:1/-1">No bags match “${v.replace(/[<>&"]/g, "")}”. Try “triangle” or a colour.</p>`;
+  }
+  q.addEventListener("input", () => renderSearch(q.value));
+
+  /* ---------- product page ---------- */
+  let cur = null;
+  const gal = document.getElementById("gal"), galPips = document.getElementById("galPips");
+  function openProduct(id) {
+    cur = by[id];
+    document.getElementById("pdLine").textContent = cur.model;
+    document.getElementById("pdName").textContent = cur.name;
+    document.getElementById("pdPrice").textContent = fmt(cur.price) + (cur.price ? " · Taxes included" : "");
+    document.getElementById("pdDesc").textContent = cur.desc;
+    const badge = document.getElementById("pdBadge"); badge.hidden = !cur.tag; badge.textContent = cur.tag || "";
+    document.getElementById("pdColour").textContent = cur.colour;
+    const sibs = P.filter(p => p.model === cur.model);
+    document.getElementById("pdSw").innerHTML = sibs.map(p => `<button aria-label="${p.colour}" aria-pressed="${p.id === cur.id}" data-sw="${p.id}" style="background:${p.hex}"></button>`).join("");
+    document.getElementById("pdDetails").textContent = `${cur.model} · ${cur.colour}. Handmade to order. Designed by Leen Abu Summaqa.`;
+    gal.innerHTML = cur.imgs.map((f, i) => `<div class="tile" style="aspect-ratio:1/1"><img class="main" src="${img(f)}" alt="${cur.name}, view ${i + 1}" style="${cur.cover ? "mix-blend-mode:normal" : ""}"></div>`).join("");
+    gal.scrollLeft = 0;
+    galPips.innerHTML = cur.imgs.length > 1 ? cur.imgs.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("") : "";
+    const add = document.getElementById("pdAdd");
+    add.textContent = cur.price == null ? "Register interest" : "Add to bag";
+    syncWishBtn();
+    if (!openP || openP.id !== "pdp") show("pdp");
+    document.getElementById("pdp").scrollTop = 0;
+  }
+  gal.addEventListener("scroll", () => {
+    const i = Math.round(gal.scrollLeft / gal.clientWidth);
+    galPips.querySelectorAll("i").forEach((p, j) => p.classList.toggle("on", i === j));
+  }, {passive:true});
+  document.getElementById("pdSw").addEventListener("click", e => { const b = e.target.closest("[data-sw]"); if (b) openProduct(b.dataset.sw); });
+  document.getElementById("pdAdd").addEventListener("click", () => {
+    if (cur.price == null) { toast("Thank you. We’ll message you when the Leila Raffia is ready."); return; }
+    bag[cur.id] = (bag[cur.id] || 0) + 1; store.set("ls-bag", bag); syncBag();
+    toast(`Added to bag · ${cur.name}`);
+  });
+  function syncWishBtn() { const b = document.getElementById("pdWish"); if (cur) b.setAttribute("aria-pressed", wish.includes(cur.id)); b.querySelector("svg").style.fill = wish.includes(cur?.id) ? "currentColor" : "none"; }
+  document.getElementById("pdWish").addEventListener("click", () => toggleWish(cur.id));
+
+  function toggleWish(id) {
+    wish = wish.includes(id) ? wish.filter(x => x !== id) : [...wish, id]; store.set("ls-wish", wish);
+    document.querySelectorAll(`[data-wish="${id}"]`).forEach(b => b.setAttribute("aria-pressed", wish.includes(id)));
+    syncWishBtn(); toast(wish.includes(id) ? "Saved to wishlist" : "Removed from wishlist");
+    if (openP && openP.id === "bagP" && mode === "wish") renderBag();
+  }
+
+  // global clicks on tiles, hearts, open links
+  document.addEventListener("click", e => {
+    const h = e.target.closest("[data-wish]"); if (h) { e.stopPropagation(); toggleWish(h.dataset.wish); return; }
+    const t = e.target.closest(".tile[data-id]"); if (t) { openProduct(t.dataset.id); return; }
+    const o = e.target.closest("[data-open]"); if (o) { e.preventDefault(); openProduct(o.dataset.open); return; }
+    const m = e.target.closest("[data-toast]"); if (m) toast(m.dataset.toast);
+  });
+  document.addEventListener("keydown", e => { const t = e.target.closest?.(".tile[data-id]"); if (t && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openProduct(t.dataset.id); } });
+
+  /* ---------- bag + wishlist panel ---------- */
+  let mode = "bag";
+  const count = () => Object.values(bag).reduce((a, b) => a + b, 0);
+  function syncBag() {
+    const n = count();
+    document.getElementById("bagDot").classList.toggle("has", n > 0);
+    document.getElementById("bagN").textContent = n || "";
+    document.getElementById("openBag").setAttribute("aria-label", `Shopping bag, ${n} item${n === 1 ? "" : "s"}`);
+  }
+  function renderBag() {
+    const body = document.getElementById("bagBody"), foot = document.getElementById("bagFoot");
+    if (mode === "wish") {
+      document.getElementById("bagTitle").textContent = `Wishlist (${wish.length})`;
+      foot.hidden = true;
+      body.innerHTML = wish.length ? `<div class="sres">${wish.map(id => tile(by[id])).join("")}</div>`
+        : `<div style="display:grid; gap:18px; padding-top:24px"><p style="margin:0">Your wishlist is empty. Tap the heart on any bag to save it here.</p><a class="btn ghost" href="#shop" data-close>Discover the bags</a></div>`;
+      return;
+    }
+    const ids = Object.keys(bag);
+    document.getElementById("bagTitle").textContent = `Shopping bag (${count()})`;
+    foot.hidden = !ids.length;
+    body.innerHTML = ids.length ? ids.map(id => { const p = by[id]; return `<div class="line">
+        <div class="tile" data-id="${id}"><img class="main" src="${img(p.imgs[0])}" alt="${p.name}"></div>
+        <div><div>${p.name}</div><div class="muted">${p.colour}</div>
+          <div class="qty"><button data-q="-1" data-id="${id}" aria-label="One fewer">−</button><span style="font-variant-numeric:tabular-nums">${bag[id]}</span><button data-q="1" data-id="${id}" aria-label="One more">+</button></div></div>
+        <div style="font-variant-numeric:tabular-nums">${p.price * bag[id]} JOD</div></div>`; }).join("")
+      : `<div style="display:grid; gap:18px; padding-top:24px"><p style="margin:0">Your shopping bag is empty.</p><a class="btn ghost" href="#shop" data-close>Discover the bags</a></div>`;
+    document.getElementById("subtotal").textContent = ids.reduce((s, id) => s + by[id].price * bag[id], 0) + " JOD";
+  }
+  document.getElementById("bagBody").addEventListener("click", e => {
+    const b = e.target.closest("[data-q]"); if (!b) return; e.stopPropagation();
+    const id = b.dataset.id; bag[id] += +b.dataset.q; if (bag[id] <= 0) delete bag[id];
+    store.set("ls-bag", bag); syncBag(); renderBag();
+  }, true);
+  document.getElementById("checkout").onclick = () => toast("Checkout connects when the store goes live");
+  syncBag();
+
+  /* ---------- toast ---------- */
+  const tEl = document.getElementById("toast"); let tt;
+  function toast(m) { tEl.textContent = m; tEl.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => tEl.classList.remove("on"), 2400); }
+
+  /* ---------- announcement ---------- */
+  const ann = ["Pre-order: 2 weeks production + shipping time applies", "As carried by Her Majesty Queen Rania", "Join the #Leenclique on Instagram"];
+  let ai = 0; const annT = document.getElementById("annText");
+  const setAnn = d => { ai = (ai + d + ann.length) % ann.length; annT.style.opacity = 0; setTimeout(() => { annT.textContent = ann[ai]; annT.style.opacity = 1; }, 250); };
+  document.getElementById("annPrev").onclick = () => setAnn(-1);
+  document.getElementById("annNext").onclick = () => setAnn(1);
+  let annTimer = setInterval(() => setAnn(1), 6000);
+
+  /* ---------- services carousel ---------- */
+  const svc = [
+    ["Made to order", "Every bag is handmade for you. Allow 2 weeks of production plus shipping."],
+    ["Shipping", "Delivered across Jordan and worldwide, tracked from our atelier to your door."],
+    ["Secure payment", "Visa, Mastercard, Apple Pay and cash on delivery in Jordan."]
+  ];
+  let si = 0; const slide = document.getElementById("svcSlide"), pips = document.getElementById("svcPips");
+  pips.innerHTML = svc.map((s, i) => `<button aria-label="${s[0]}" data-i="${i}"></button>`).join("");
+  function setSvc(i) {
+    si = (i + svc.length) % svc.length; slide.style.opacity = 0;
+    setTimeout(() => { slide.innerHTML = `<h3>${svc[si][0]}</h3><p>${svc[si][1]}</p>`; slide.style.opacity = 1; }, 200);
+    pips.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-current", j === si));
+  }
+  setSvc(0); slide.innerHTML = `<h3>${svc[0][0]}</h3><p>${svc[0][1]}</p>`;
+  document.getElementById("svcPrev").onclick = () => setSvc(si - 1);
+  document.getElementById("svcNext").onclick = () => setSvc(si + 1);
+  pips.addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (b) setSvc(+b.dataset.i); });
+
+  /* ---------- newsletter ---------- */
+  document.getElementById("newsForm").addEventListener("submit", e => {
+    e.preventDefault(); const v = document.getElementById("email").value.trim(), m = document.getElementById("newsMsg");
+    m.textContent = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v) ? "You’re on the list. Welcome to the #Leenclique." : "Enter an email address like name@example.com.";
+  });
+
+  /* ---------- header border ---------- */
+  const hdr = document.getElementById("hdr");
+  const onS = () => hdr.classList.toggle("scrolled", scrollY > 10);
+  addEventListener("scroll", onS, {passive:true}); onS();
+})();
+</script>
+</body>
+</html>
